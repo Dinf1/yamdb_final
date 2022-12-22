@@ -13,7 +13,7 @@ class OwnerOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
-        if(
+        if (
             request.method == 'DELETE'
             and request.user.is_authenticated
             and (request.user.is_moderator
@@ -23,7 +23,7 @@ class OwnerOrReadOnly(permissions.BasePermission):
 
         ):
             return True
-        if(
+        if (
             view.basename == 'title'
             and request.method == 'PATCH'
             and request.user.is_authenticated
