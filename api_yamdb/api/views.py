@@ -1,4 +1,6 @@
 from http import HTTPStatus
+
+import django_filters
 from django.contrib.auth import get_user_model
 from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import get_object_or_404
@@ -10,7 +12,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
 from reviews.models import Category, Genre, Review, Title
-import django_filters
+
 from .permissions import (AdminOnly, AdminOrReadOnly, OnlyOwnAccount,
                           OwnerOrReadOnly)
 from .serializers import (CategorySerializer, CommentsSerializer,
